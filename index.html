@@ -1,31 +1,184 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
 <meta charset="UTF-8">
-<title>Happy Birthday Choti</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Choti ❤️</title>
+
+<style>
+body{
+margin:0;
+font-family:sans-serif;
+background:#fff0f5;
+text-align:center;
+padding:20px;
+}
+
+h1{
+color:#ff4f8b;
+}
+
+#cake{
+width:280px;
+height:160px;
+background:#ffb6c1;
+margin:40px auto;
+border-radius:20px;
+position:relative;
+cursor:pointer;
+}
+
+#cake::before{
+content:"";
+position:absolute;
+top:-20px;
+left:0;
+width:100%;
+height:40px;
+background:white;
+border-radius:20px;
+}
+
+.candle{
+position:absolute;
+width:10px;
+height:40px;
+background:#fff;
+bottom:120px;
+}
+
+.flame{
+width:12px;
+height:12px;
+background:orange;
+border-radius:50%;
+position:absolute;
+top:-10px;
+left:-1px;
+}
+
+#blowBtn{
+display:none;
+padding:10px 20px;
+border:none;
+border-radius:30px;
+font-size:18px;
+background:#ff4f8b;
+color:white;
+}
+
+#letter{
+display:none;
+font-size:70px;
+cursor:pointer;
+margin-top:20px;
+}
+
+#message{
+display:none;
+background:white;
+padding:20px;
+border-radius:20px;
+max-width:500px;
+margin:20px auto;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+</style>
 </head>
-<body style="text-align:center;font-family:sans-serif;background:#fff7fa;">
+
+<body>
 
 <h1>🎂 Happy Birthday Choti 💗</h1>
 
-<p>จากมายด์ถึงโชติ</p>
+<p id="status">กดที่เค้กเพื่อปักเทียนให้ครบ 5 เล่ม 🕯️</p>
 
-<h2>💌</h2>
+<div id="cake"></div>
+
+<button id="blowBtn">💨 เป่าเทียน</button>
+
+<div id="letter">💌</div>
+
+<div id="message">
+<h2>ถึงโชติ ❤️</h2>
 
 <p>
-สุขสันต์วันเกิดนะโชติ ❤️<br><br>
+สุขสันต์วันเกิดนะคนเก่งของมายด์ 🎂💗<br><br>
 
-ขอให้มีความสุขมาก ๆ
+ขอบคุณที่เข้ามาเป็นรอยยิ้มในทุกวัน
+และขอบคุณที่เป็นคนสำคัญของมายด์
+
+ขอให้ปีนี้เต็มไปด้วยความสุข
 สุขภาพแข็งแรง
 สมหวังในทุกเรื่องที่ตั้งใจ
 
-ขอบคุณที่เข้ามาเป็นคนสำคัญของมายด์นะ ✨
+ไม่ว่าจะเกิดอะไรขึ้น
+ขอให้รู้ไว้ว่ามีคนคนหนึ่ง
+คอยเป็นกำลังใจให้โชติเสมอ ✨
 
-รักโชติมาก ๆ 💗
+รักโชติมากนะ 🤍
 
 <br><br>
-จาก มายด์
+จาก มายด์ 💌
 </p>
+</div>
+
+<script>
+
+let count = 0;
+const cake = document.getElementById("cake");
+
+const positions = [40,80,120,160,200];
+
+cake.onclick = function(){
+
+if(count >= 5) return;
+
+let candle = document.createElement("div");
+candle.className = "candle";
+candle.style.left = positions[count] + "px";
+
+let flame = document.createElement("div");
+flame.className = "flame";
+
+candle.appendChild(flame);
+cake.appendChild(candle);
+
+count++;
+
+if(count === 5){
+document.getElementById("status").innerHTML =
+"🎂 อธิษฐานแล้วกดเป่าเทียนเลย";
+
+document.getElementById("blowBtn").style.display =
+"inline-block";
+}
+}
+
+document.getElementById("blowBtn").onclick = function(){
+
+document.querySelectorAll(".flame").forEach(f=>{
+f.style.display="none";
+});
+
+this.style.display="none";
+
+document.getElementById("letter").style.display =
+"block";
+
+document.getElementById("status").innerHTML =
+"💌 มายด์มีอะไรจะบอกโชติ กดเปิดจดหมายสิ";
+}
+
+document.getElementById("letter").onclick = function(){
+
+document.getElementById("message").style.display =
+"block";
+}
+
+</script>
+
+</body>
+</html>
 
 </body>
 </html>
