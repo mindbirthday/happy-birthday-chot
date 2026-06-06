@@ -3,100 +3,303 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Choti ❤️</title>
+<title>Happy Birthday 💗 Chot</title>
 
 <style>
 body{
 margin:0;
 font-family:sans-serif;
-background:#fff0f5;
+background:radial-gradient(circle,#fff0f5,#ffd6e0,#ffc2d1);
 text-align:center;
-padding:20px;
+overflow:hidden;
+}
+
+/* 🌟 ดาวพื้นหลัง */
+.star{
+position:fixed;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+opacity:0.6;
+animation:twinkle 2s infinite;
+}
+
+@keyframes twinkle{
+0%,100%{opacity:0.2;}
+50%{opacity:1;}
+}
+
+/* 💗 หัวใจลอย */
+.heart{
+position:fixed;
+color:#ff4f8b;
+font-size:18px;
+animation:floatUp 5s linear forwards;
+opacity:0.7;
+}
+
+@keyframes floatUp{
+0%{transform:translateY(100vh) scale(1);}
+100%{transform:translateY(-10vh) scale(1.5);opacity:0;}
 }
 
 h1{
-color:#ff4f8b;
+color:#ff2e63;
+margin-top:20px;
+text-shadow:0 3px 10px rgba(0,0,0,0.1);
 }
 
+/* 🎂 เค้ก */
 #cake{
-width:280px;
-height:160px;
-background:#ffb6c1;
+width:340px;
+height:280px;
 margin:40px auto;
-border-radius:20px;
 position:relative;
-cursor:pointer;
+transform-style:preserve-3d;
+animation:floatCake 4s ease-in-out infinite;
 }
 
-#cake::before{
-content:"";
+@keyframes floatCake{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+}
+
+.shadow{
 position:absolute;
-top:-20px;
-left:0;
-width:100%;
-height:40px;
-background:white;
-border-radius:20px;
+bottom:-10px;
+left:50%;
+transform:translateX(-50%);
+width:220px;
+height:30px;
+background:rgba(0,0,0,0.15);
+border-radius:50%;
 }
 
+/* 🎂 ชั้นเค้ก */
+.layer1{
+width:340px;
+height:120px;
+background:linear-gradient(145deg,#ff4f8b,#ff2e63);
+border-radius:30px;
+position:absolute;
+bottom:0;
+box-shadow:0 20px 30px rgba(0,0,0,0.25);
+}
+
+.layer2{
+width:260px;
+height:95px;
+background:linear-gradient(145deg,#ffd1dc,#ff8fb1);
+border-radius:30px;
+position:absolute;
+bottom:110px;
+left:40px;
+box-shadow:0 15px 25px rgba(0,0,0,0.15);
+}
+
+.cream{
+width:260px;
+height:30px;
+background:white;
+border-radius:50px;
+position:absolute;
+bottom:200px;
+left:40px;
+box-shadow:0 5px 10px rgba(0,0,0,0.1);
+}
+
+/* drip */
+.drip{
+width:14px;
+height:22px;
+background:white;
+border-radius:50%;
+position:absolute;
+bottom:190px;
+}
+.drip1{left:80px;}
+.drip2{left:160px;}
+.drip3{left:240px;}
+
+.cherry{
+width:18px;
+height:18px;
+background:#ff2e63;
+border-radius:50%;
+position:absolute;
+bottom:240px;
+left:165px;
+box-shadow:0 0 15px rgba(255,46,99,0.7);
+}
+
+/* ✨ sparkle */
+.sparkle{
+position:absolute;
+width:6px;
+height:6px;
+background:white;
+border-radius:50%;
+box-shadow:0 0 10px #fff;
+animation:twinkle2 1.5s infinite;
+}
+
+@keyframes twinkle2{
+0%,100%{transform:scale(0.5);opacity:0.3;}
+50%{transform:scale(1.3);opacity:1;}
+}
+
+/* 🕯️ เทียน */
 .candle{
 position:absolute;
-width:10px;
-height:40px;
+bottom:220px;
+width:6px;
+height:30px;
 background:#fff;
-bottom:120px;
+border-radius:3px;
+animation:pop 0.2s ease;
+}
+
+@keyframes pop{
+from{transform:scale(0);}
+to{transform:scale(1);}
 }
 
 .flame{
-width:12px;
-height:12px;
+width:10px;
+height:10px;
 background:orange;
 border-radius:50%;
 position:absolute;
 top:-10px;
 left:-1px;
+box-shadow:0 0 15px orange;
+animation:flicker 0.2s infinite alternate;
 }
 
-#blowBtn{
+@keyframes flicker{
+from{transform:scale(1);}
+to{transform:scale(1.3);opacity:1;}
+}
+
+/* 💨 ควัน */
+.smoke{
+position:absolute;
+width:10px;
+height:10px;
+background:rgba(150,150,150,0.5);
+border-radius:50%;
+animation:smokeUp 2s ease-out forwards;
+}
+
+@keyframes smokeUp{
+0%{transform:translateY(0);}
+100%{transform:translateY(-120px) scale(3);opacity:0;}
+}
+
+/* 🎁 กล่อง */
+#giftBox{
+font-size:85px;
+cursor:pointer;
+margin-top:10px;
+animation:bounce 1s infinite;
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+}
+
+/* 🎁 popup */
+#giftModal{
 display:none;
-padding:10px 20px;
-border:none;
-border-radius:30px;
-font-size:18px;
-background:#ff4f8b;
-color:white;
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,0.7);
+justify-content:center;
+align-items:center;
 }
 
+#giftContent{
+background:white;
+padding:30px;
+border-radius:20px;
+text-align:center;
+animation:pop 0.3s ease;
+}
+
+/* 💌 จดหมาย */
 #letter{
 display:none;
-font-size:70px;
+font-size:65px;
 cursor:pointer;
 margin-top:20px;
+animation:bounce 1s infinite;
 }
 
+/* 📜 กระดาษ */
 #message{
 display:none;
 background:white;
-padding:20px;
+padding:30px;
 border-radius:20px;
-max-width:500px;
+max-width:550px;
 margin:20px auto;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
+box-shadow:0 0 25px rgba(0,0,0,0.15);
+transform:scaleY(0);
+transform-origin:top;
+animation:openPaper 0.8s forwards;
+}
+
+@keyframes openPaper{
+to{transform:scaleY(1);}
+}
+
+/* 🎶 เพลง */
+iframe{
+position:fixed;
+width:1px;
+height:1px;
+opacity:0;
 }
 </style>
 </head>
 
 <body>
 
-<h1>🎂 Happy Birthday Choti 💗</h1>
+<h1>🎂 Happy Birthday 💗 Choti</h1>
+<p id="status">กดที่เค้กเพื่อปักเทียน 🕯️</p>
 
-<p id="status">กดที่เค้กเพื่อปักเทียนให้ครบ 5 เล่ม 🕯️</p>
+<div id="cake">
 
-<div id="cake"></div>
+<div class="shadow"></div>
 
-<button id="blowBtn">💨 เป่าเทียน</button>
+<div class="layer1"></div>
+<div class="layer2"></div>
+<div class="cream"></div>
 
+<div class="drip drip1"></div>
+<div class="drip drip2"></div>
+<div class="drip drip3"></div>
+
+<div class="cherry"></div>
+
+</div>
+
+<button id="blowBtn" style="display:none;">💨 เป่าเทียน</button>
+
+<div id="giftBox">🎁</div>
 <div id="letter">💌</div>
+
+<div id="giftModal">
+<div id="giftContent">
+<h2>🎉 Surprise!!!</h2>
+<p>รักมากที่สุดเลย 💗</p>
+<button onclick="openMusic()">🎶 เปิดเพลง</button>
+<button onclick="closeGift()">ปิด</button>
+</div>
+</div>
 
 <div id="message">
 <h2>ถึงโชติ ❤️</h2>
@@ -104,81 +307,122 @@ box-shadow:0 0 10px rgba(0,0,0,0.1);
 <p>
 สุขสันต์วันเกิดนะคนเก่งของมายด์ 🎂💗<br><br>
 
-ขอบคุณที่เข้ามาเป็นรอยยิ้มในทุกวัน
-และขอบคุณที่เป็นคนสำคัญของมายด์
+ขอบคุณที่เข้ามาเป็นรอยยิ้มในทุกวัน  
+และขอบคุณที่เป็นคนสำคัญของมายด์มาก ๆ เลยนะ<br><br>
 
-ขอให้ปีนี้เต็มไปด้วยความสุข
-สุขภาพแข็งแรง
-สมหวังในทุกเรื่องที่ตั้งใจ
+ขอให้ปีนี้เป็นปีที่ดีของโชติ  
+เต็มไปด้วยความสุขในทุกวันเล็ก ๆ  
+สุขภาพแข็งแรง ไม่เหนื่อยเกินไป  
+และสมหวังในทุกสิ่งที่ตั้งใจไว้ ✨<br><br>
 
-ไม่ว่าจะเกิดอะไรขึ้น
-ขอให้รู้ไว้ว่ามีคนคนหนึ่ง
-คอยเป็นกำลังใจให้โชติเสมอ ✨
+ไม่ว่าจะวันไหน หรือจะเกิดอะไรขึ้น  
+มายด์อยากให้โชติรู้ไว้เสมอว่า  
+จะมีคนคนหนึ่งคอยเป็นกำลังใจให้ตรงนี้ตลอดนะ 🤍<br><br>
 
-รักโชติมากนะ 🤍
+รักโชติมากนะ 💕<br><br>
 
-<br><br>
 จาก มายด์ 💌
 </p>
 </div>
 
+<!-- 🎶 เพลง -->
+<iframe src="https://www.youtube.com/embed/oIJlLTKo-Pg?autoplay=1&mute=1"></iframe>
+
 <script>
 
-let count = 0;
-const cake = document.getElementById("cake");
+/* 🌟 ดาว */
+for(let i=0;i<60;i++){
+let s=document.createElement("div");
+s.className="star";
+s.style.left=Math.random()*100+"vw";
+s.style.top=Math.random()*100+"vh";
+s.style.animationDuration=(1+Math.random()*3)+"s";
+document.body.appendChild(s);
+}
 
-const positions = [40,80,120,160,200];
+/* 💗 หัวใจ */
+setInterval(()=>{
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="💗";
+h.style.left=Math.random()*100+"vw";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),6000);
+},300);
 
-cake.onclick = function(){
+/* 🎂 เค้ก */
+const cake=document.getElementById("cake");
+const positions=[80,130,180,230,280];
+let count=0;
 
-if(count >= 5) return;
+for(let i=0;i<18;i++){
+let sp=document.createElement("div");
+sp.className="sparkle";
+sp.style.left=Math.random()*320+"px";
+sp.style.top=Math.random()*240+"px";
+cake.appendChild(sp);
+}
 
-let candle = document.createElement("div");
-candle.className = "candle";
-candle.style.left = positions[count] + "px";
+cake.onclick=function(){
+if(count>=5) return;
 
-let flame = document.createElement("div");
-flame.className = "flame";
+let candle=document.createElement("div");
+candle.className="candle";
+candle.style.left=positions[count]+"px";
+
+let flame=document.createElement("div");
+flame.className="flame";
 
 candle.appendChild(flame);
 cake.appendChild(candle);
 
 count++;
 
-if(count === 5){
-document.getElementById("status").innerHTML =
-"🎂 อธิษฐานแล้วกดเป่าเทียนเลย";
-
-document.getElementById("blowBtn").style.display =
-"inline-block";
+if(count===5){
+document.getElementById("status").innerHTML="🎂 เป่าเทียนแล้วขอพรเลยนะ";
+document.getElementById("blowBtn").style.display="inline-block";
 }
 }
 
-document.getElementById("blowBtn").onclick = function(){
+/* 💨 เป่าเทียน */
+document.getElementById("blowBtn").onclick=function(){
 
 document.querySelectorAll(".flame").forEach(f=>{
-f.style.display="none";
+
+let smoke=document.createElement("div");
+smoke.className="smoke";
+smoke.style.left=f.parentElement.style.left;
+smoke.style.bottom="240px";
+cake.appendChild(smoke);
+
+setTimeout(()=>smoke.remove(),2000);
+
+f.remove();
 });
 
 this.style.display="none";
-
-document.getElementById("letter").style.display =
-"block";
-
-document.getElementById("status").innerHTML =
-"💌 มายด์มีอะไรจะบอกโชติ กดเปิดจดหมายสิ";
+document.getElementById("letter").style.display="block";
 }
 
-document.getElementById("letter").onclick = function(){
+/* 🎁 กล่อง */
+document.getElementById("giftBox").onclick=function(){
+document.getElementById("giftModal").style.display="flex";
+}
 
-document.getElementById("message").style.display =
-"block";
+function closeGift(){
+document.getElementById("giftModal").style.display="none";
+}
+
+function openMusic(){
+window.open("https://youtu.be/oIJlLTKo-Pg","_blank");
+}
+
+/* 💌 จดหมาย */
+document.getElementById("letter").onclick=function(){
+document.getElementById("message").style.display="block";
 }
 
 </script>
-
-</body>
-</html>
 
 </body>
 </html>
